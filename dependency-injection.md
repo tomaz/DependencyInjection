@@ -29,7 +29,7 @@ class MasterViewController {
 	// }
 }
 
-class ChildViewController {
+class DetailViewController {
 	func doSomethingWithStore() {
 		DataStore.shared.someCoolFunctionality()
 	}
@@ -89,7 +89,7 @@ class MasterViewController {
 	// }
 }
 
-class ChildViewController: DataStoreConsumer {
+class DetailViewController: DataStoreConsumer {
 	func doSomethingWithStore() {
 		dataStore.someCoolFunctionality()
 	}
@@ -129,9 +129,9 @@ Cons:
 class MasterViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		switch segue.destination {
-		case let destination as Child1ViewController:
+		case let destination as Detail1ViewController:
 			destination.dataStore = dataStore
-		case let destination as Child2ViewController:
+		case let destination as Detail2ViewController:
 			destination.dataStore = dataStore
 			destination.representedObject = anObject
 		default:
@@ -177,7 +177,7 @@ class MasterViewController: DataStoreConsumer {
 	}
 }
 
-class ChildViewController: DataStoreConsumer {
+class DetailViewController: DataStoreConsumer {
 	var dataStore: DataStore!
 	func doSomethingWithStore() {
 		dataStore.someCoolFunctionality()
